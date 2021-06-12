@@ -6,7 +6,16 @@
 
 namespace pandemic{
 
-    Scientist::Scientist(Board board1, City city1, Board board, City city, int num) : Player(board1, city1), n(num){
+    Scientist::Scientist(Board board, City city1, int num)
+        : Player(board, city1), n(num){
 
+    }
+
+    string Scientist::role() {
+        return Player::role();
+    }
+
+    void Scientist::discover_cure(Color color) {
+        Player::discover_cure(color);
     }
 }

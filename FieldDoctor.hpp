@@ -20,6 +20,12 @@ namespace pandemic
     {
     public:
         FieldDoctor(Board board, City city);
+
+        // Returns Player's Role in the Game - has no use in Player
+        string role() override;
+
+        //FieldDoctor Ability to Treat Neighbor Cities
+        FieldDoctor& treat(City city) override;
     };
 }
 

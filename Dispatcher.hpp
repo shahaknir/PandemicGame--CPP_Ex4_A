@@ -20,6 +20,12 @@ namespace pandemic
     {
     public:
         Dispatcher(Board board, City city);
+        // Returns Player's Role in the Game - has no use in Player
+        string role() override;
+
+        // Dispatcher can fly directly to where ever he wish
+        // if there ia a research station in his current city
+        Dispatcher& fly_direct(City city) override;
     };
 }
 

@@ -21,7 +21,12 @@ namespace pandemic
         int n;
 
     public:
-        Scientist(Board board1, City city1, Board board, City city, int num);
+        Scientist(Board board, City city, int num);
+        // Returns Player's Role in the Game - has no use in Player
+        string role() override;
+        // Can discover cure with only n cards as given in the constructor
+        void discover_cure(Color color) override;
+
     };
 }
 

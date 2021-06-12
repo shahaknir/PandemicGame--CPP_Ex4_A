@@ -19,6 +19,12 @@ namespace pandemic
     {
     public:
         Researcher(Board board, City city);
+
+        // Returns Player's Role in the Game - has no use in Player
+        string role() override;
+
+        // Can find cure without having a research station
+        void discover_cure(Color color) override;
     };
 }
 

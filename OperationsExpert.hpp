@@ -18,6 +18,13 @@ namespace pandemic
     {
     public:
         OperationsExpert(Board b, City c);
+
+        // Returns Player's Role in the Game - has no use in Player
+        string role() override;
+
+        // can build a Research Station in any city he is currently in without throwing any card
+        OperationsExpert& build() override;
+
     };
 
 }

@@ -20,6 +20,12 @@ namespace pandemic
     {
     public:
         Virologist(Board board, City city);
+
+        // Returns Player's Role in the Game - has no use in Player
+        string role() override;
+
+        // Can Cure Disease with only throwing the city's card
+        Virologist& treat(City city) override;
     };
 }
 

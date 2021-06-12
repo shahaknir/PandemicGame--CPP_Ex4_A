@@ -20,6 +20,20 @@ namespace pandemic
     {
     public:
         Medic(Board board, City city);
+        // Returns Player's Role in the Game - has no use in Player
+        string role() override;
+
+        // When treating - get disease level to 0
+        Medic& treat(City city) override;
+
+        // If cure was discovered - get disease level to 0
+        // to each city he is in
+        Medic& drive(City city) override;
+        Medic& fly_direct(City city) override;
+        Medic& fly_charter(City city) override;
+        Medic& fly_shuttle(City city) override;
+
+
     };
 }
 

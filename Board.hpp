@@ -21,13 +21,13 @@ using std::map;
 using std::vector;
 
 typedef struct{
-    int infectionLvl;
+    int infection_level;
     vector<City> neighbours;
     Color color;
-    bool resreachStation;
-}cityInfo;
+    bool research_station;
+}city_node;
 
-typedef map<City, cityInfo> citiesMap;
+typedef map<City, city_node> citiesMap;
 
 
 namespace pandemic {
@@ -42,15 +42,12 @@ namespace pandemic {
     public:
 
         Board();
-
+        citiesMap get_cities_map();
+        void remove_cures();
         bool is_clean();
-
         bool isBuilt(City city);
-
         bool isCured(Color color);
-
         int & operator[](City city);
-
         friend ostream& operator<< (ostream& out, const Board& num);
     };
 }

@@ -17,15 +17,15 @@ using std::string;
 enum Color{
     Black,
     Blue,
-    Yellow,
-    Red
+    Red,
+    Yellow
 };
 
 static map<string, Color> colorEnumMap{
-        {"Blue", Color::Blue},
         {"Black", Color::Black},
+        {"Blue", Color::Blue},
         {"Red", Color::Red},
-        { "Yellow", Color::Yellow }
+        { "Yellow", Color::Yellow}
 };
 
 

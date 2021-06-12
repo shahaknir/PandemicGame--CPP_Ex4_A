@@ -16,6 +16,15 @@ Board::Board() {
     readCountries();
 }
 
+void Board::remove_cures() {
+
+}
+
+
+citiesMap Board::get_cities_map(){
+    return this->_citiesMap;
+}
+
 void Board::readCountries(){
     ifstream file("../cities_map.txt");
     string row;
@@ -24,17 +33,17 @@ void Board::readCountries(){
     while (std::getline(file, row)) {
         istringstream iss(row);
 
-        cityInfo cityInfo;
+        city_node cityNode;
         iss >> cityStr;
 
         iss >> colorStr;
-        cityInfo.color = colorEnumMap.at(colorStr);
+        cityNode.color = colorEnumMap.at(colorStr);
         while(iss >> word) {
             iss >> neighbour;
-            cityInfo.neighbours.push_back(cityEnumMap.at(neighbour));
+            cityNode.neighbours.push_back(cityEnumMap.at(neighbour));
         }
-        cityInfo.infectionLvl = 0;
-        this->_citiesMap[cityEnumMap.at(cityStr)] = cityInfo;
+        cityNode.infection_level = 0;
+        this->_citiesMap[cityEnumMap.at(cityStr)] = cityNode;
     }
 }
 
@@ -53,10 +62,10 @@ bool Board::isCured(Color color) {
 
 int &Board::operator[](City city) {
     try{
-        return _citiesMap.at(city).infectionLvl;
+        return _citiesMap.at(city).infection_level;
     }catch(const std::out_of_range& e) {
-        _citiesMap[city].infectionLvl = 0;
-        return _citiesMap.at(city).infectionLvl;
+        _citiesMap[city].infection_level = 0;
+        return _citiesMap.at(city).infection_level;
 //            throw ("city dosen't exist");
     }
 }
@@ -64,6 +73,7 @@ int &Board::operator[](City city) {
 ostream &pandemic::operator<<(ostream &out, const Board &num) {
     return out;
 }
+
 
 
 
